@@ -8,5 +8,14 @@ import (
 func main() {
 	data, _ := os.ReadFile("./words.txt")
 
-	fmt.Println("data: ", string(data))
+	wordCount := 0
+
+	for _, value := range data {
+		if value == ' ' {
+			wordCount++
+		}
+	}
+
+	wordCount++
+	fmt.Println("total words in the text file are", wordCount)
 }
