@@ -8,6 +8,11 @@ import (
 func main() {
 	data, _ := os.ReadFile("./words.txt")
 
+	result := wordCount(data)
+	fmt.Println(result)
+}
+
+func wordCount(data []byte) int {
 	wordCount := 0
 
 	for _, value := range data {
@@ -17,5 +22,5 @@ func main() {
 	}
 
 	wordCount++
-	fmt.Println("total words in the text file are", wordCount)
+	return wordCount
 }
