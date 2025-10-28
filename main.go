@@ -13,17 +13,16 @@ func main() {
 }
 
 func wordCount(data []byte) int {
-	if len(data) == 0 {
-		return 0
-	}
 	wordCount := 0
 
-	for _, value := range data {
-		if value == ' ' {
+	wasSpace := true
+	for _, x := range data {
+		isSpace := (x == ' ' || x == '\n' || x == '\t')
+		if wasSpace && !isSpace {
 			wordCount++
 		}
+		wasSpace = isSpace
 	}
 
-	wordCount++
 	return wordCount
 }
