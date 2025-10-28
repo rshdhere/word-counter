@@ -7,7 +7,11 @@ import (
 )
 
 func main() {
-	data, _ := os.ReadFile("./words.txt")
+	fileName := "./words.txt"
+	data, err := os.ReadFile(fileName)
+	if err != nil {
+		fmt.Printf("failed to read file: %v", err)
+	}
 
 	result := WordCount(data)
 	fmt.Println(result)
