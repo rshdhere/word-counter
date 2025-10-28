@@ -3,16 +3,21 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"io"
 	"os"
 )
 
 func main() {
 	fileName := "./words.txt"
-	data, err := os.ReadFile(fileName)
+	file, err := os.Open(fileName)
+	if err != nil {
+		fmt.Printf("failed to open file: %v", err)
+	}
+
+	data, err := io.ReadAll(file)
 	if err != nil {
 		fmt.Printf("failed to read file: %v", err)
 	}
-
 	result := WordCount(data)
 	fmt.Println(result)
 }
