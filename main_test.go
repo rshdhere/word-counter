@@ -1,6 +1,10 @@
-package main
+package main_test
 
-import "testing"
+import (
+	"testing"
+
+	counter "github.com/rshdhere/counter"
+)
 
 func TestCountWords(t *testing.T) {
 	testCases := []struct {
@@ -59,7 +63,7 @@ func TestCountWords(t *testing.T) {
 
 	for _, value := range testCases {
 		t.Run(value.name, func(t *testing.T) {
-			result := wordCount([]byte(value.input))
+			result := counter.WordCount([]byte(value.input))
 
 			if result != value.wants {
 				t.Logf("%s expected: %d received: %d", value.name, value.wants, result)

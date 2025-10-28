@@ -1,3 +1,3 @@
-module github.com/rshdhere/word-counter.git
+module github.com/rshdhere/counter
 
 go 1.23.4

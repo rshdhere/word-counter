@@ -1,19 +1,19 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"os"
-	"strings"
 )
 
 func main() {
 	data, _ := os.ReadFile("./words.txt")
 
-	result := wordCount(data)
+	result := WordCount(data)
 	fmt.Println(result)
 }
 
-func wordCount(data []byte) int {
-	words := strings.Fields(string(data))
+func WordCount(data []byte) int {
+	words := bytes.Fields(data)
 	return len(words)
 }
